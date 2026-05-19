@@ -343,8 +343,7 @@ export default function SensoryReadingModule() {
               <div style={{ display: "flex", gap: "8px", justifyContent: "center", marginTop: "8px" }}>
                 <span style={{ background: "rgba(221,212,245,0.6)", borderRadius: "20px", padding: "2px 12px", fontSize: "0.78rem", fontWeight: 700, color: "#7A7590" }}>{word.categoryLabel}</span>
               <span style={{ fontSize: "0.78rem", fontWeight: 600, color: "#7A7590" }}>
-                {difficulty === "Fácil" || difficulty === "easy" ? "🌱" : "🌟"}
-                {" "}{difficulty === "easy" ? "Fácil" : difficulty === "medium" ? "Media" : difficulty}
+                {difficulty === "easy" ? "🌱 Fácil" : "🌟 Media"}
               </span>
               </div>
             </div>

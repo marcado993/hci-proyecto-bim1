@@ -69,18 +69,20 @@ export default function PictogramCard({ exercise, status, isHintVisible }: Picto
         </div>
       ) : (
         /* Fallback elegante con emoji grande */
-        <div style={{
-          width: "clamp(120px, 40vw, 180px)",
-          aspectRatio: "1",
-          background: "rgba(255,255,255,0.7)",
-          borderRadius: "18px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: "clamp(4rem, 15vw, 7rem)",
-          lineHeight: 1,
-          className: isHintVisible && status === "idle" ? "animate-gentle-float" : "",
-        }}>
+        <div
+          className={isHintVisible && status === "idle" ? "animate-gentle-float" : ""}
+          style={{
+            width: "clamp(120px, 40vw, 180px)",
+            aspectRatio: "1",
+            background: "rgba(255,255,255,0.7)",
+            borderRadius: "18px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "clamp(4rem, 15vw, 7rem)",
+            lineHeight: 1,
+          }}
+        >
           {word.emoji}
         </div>
       )}

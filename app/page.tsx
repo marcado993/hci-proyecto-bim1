@@ -7,6 +7,7 @@ import CategorySelector from "@/components/CategorySelector/CategorySelector";
 import SensoryReadingModule from "@/components/SensoryReading/SensoryReadingModule";
 import { CATEGORIES } from "@/lib/vocabulary";
 import { getExercisesForCategory } from "@/lib/exercises";
+import Image from "next/image";
 
 // ── Dashboard ─────────────────────────────────────────────────────
 function Dashboard() {
@@ -41,8 +42,11 @@ function Dashboard() {
               background: "#DDD4F5", border: "2px solid #C0B0E8",
               borderRadius: "14px", display: "flex", alignItems: "center",
               justifyContent: "center", fontSize: "1.6rem",
+              overflow: "hidden", position: "relative", flexShrink: 0,
             }}>
-              {profile?.avatar ?? "📖"}
+              {profile?.avatar === "leon" ? (
+                <Image src="/avatars/avatar_leon.png" alt="León" fill style={{ objectFit: "cover" }} />
+              ) : (profile?.avatar ?? "📖")}
             </div>
             <div>
               <p style={{ fontSize: "0.75rem", color: "#7A7590", fontWeight: 600 }}>¡Hola!</p>

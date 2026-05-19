@@ -218,3 +218,43 @@ body {
   background: transparent;
   animation: neutral-fade 0.8s ease-in-out;
 }
+
+/* ═══════════════════════════════════════════
+   DESKTOP LAYOUT — ≥ 768px
+   ═══════════════════════════════════════════ */
+
+/* Móvil: paneles apilados verticalmente */
+.exercise-body   { flex-direction: column; overflow-y: auto; }
+.exercise-left   { flex: 0 0 auto; }
+.exercise-right  { flex: 1; }
+
+/* Dashboard centrado */
+.dashboard-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+}
+
+/* Grid de categorías: 2 columnas en móvil */
+.category-grid-desktop {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  /* Ejercicio: side-by-side */
+  .exercise-body  { flex-direction: row !important; overflow: hidden; }
+  .exercise-left  { flex: 0 0 380px; overflow-y: auto; }
+  .exercise-right { flex: 1; overflow-y: auto; }
+
+  /* Dashboard */
+  .dashboard-content { padding: 32px 40px; }
+
+  /* 4 columnas en desktop */
+  .category-grid-desktop {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .exercise-left { flex: 0 0 440px; }
+}

@@ -12,33 +12,26 @@ export interface Exercise {
   pictogramSrc: string; // Ruta imagen Gemini o fallback emoji
 }
 
-// Mapa: word → imagen generada por Gemini (en /public/)
+// Mapa: word → pictograma WebP generado con Gemini (en /public/)
+// Formato WebP 400×400px, quality 88 — ~10 KB promedio vs ~500 KB PNG
 const GEMINI_IMAGES: Record<string, string> = {
-  // Animales
-  gato:     "/pictogram_gato_1779213395825.png",
-  perro:    "/pictogram_perro_1779213438574.png",
-  pato:     "/pictogram_pato_1779215858368.png",
-  // Alimentos
-  pan:      "/pictogram_pan_1779215959532.png",
-  agua:     "/pictogram_agua_1779213484193.png",
-  // Familia
-  mamá:     "/pictogram_mama_1779213410725.png",
-  papá:     "/pictogram_papa_1779213458849.png",
-  niño:     "/pictogram_ni_o_1779215870493.png",
-  niña:     "/pictogram_ni_o_1779215870493.png",
-  familia:  "/pictogram_familia_1779215922915.png",
-  // Naturaleza
-  sol:      "/pictogram_sol_1779213423108.png",
-  luna:     "/pictogram_luna_1779215884307.png",
-  flor:     "/pictogram_flor_1779215938568.png",
-  // Casa
-  casa:     "/pictogram_casa_1779213471267.png",
-  // Valores
-  amor:     "/pictogram_amor_1779213496900.png",
-  // Emociones
-  feliz:    "/pictogram_feliz_1779215897003.png",
-  // Mi Familia
-  mi_familia: "/pictogram_familia_1779215922915.png",
+  gato:       "/pictogram_gato.webp",
+  perro:      "/pictogram_perro.webp",
+  pato:       "/pictogram_pato.webp",
+  pan:        "/pictogram_pan.webp",
+  agua:       "/pictogram_agua.webp",
+  mamá:       "/pictogram_mama.webp",
+  papá:       "/pictogram_papa.webp",
+  niño:       "/pictogram_nino.webp",
+  niña:       "/pictogram_nino.webp",
+  familia:    "/pictogram_familia.webp",
+  sol:        "/pictogram_sol.webp",
+  luna:       "/pictogram_luna.webp",
+  flor:       "/pictogram_flor.webp",
+  casa:       "/pictogram_casa.webp",
+  amor:       "/pictogram_amor.webp",
+  feliz:      "/pictogram_feliz.webp",
+  mi_familia: "/pictogram_familia.webp",
 };
 
 // Oraciones cloze (una por palabra del vocabulario)

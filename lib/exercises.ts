@@ -18,6 +18,7 @@ const GEMINI_IMAGES: Record<string, string> = {
   gato:       "/pictogram_gato.webp",
   perro:      "/pictogram_perro.webp",
   pato:       "/pictogram_pato.webp",
+  vaca:       "/pictogram_vaca.webp",
   pan:        "/pictogram_pan.webp",
   agua:       "/pictogram_agua.webp",
   mamá:       "/pictogram_mama.webp",

@@ -219,6 +219,19 @@ body {
   animation: neutral-fade 0.8s ease-in-out;
 }
 
+/* ── Grammar Ninja: slot vacío siguiente rebota ── */
+@keyframes ninja-bounce {
+  0%, 100% { transform: translateY(0) scale(1);    box-shadow: 0 0 16px rgba(154,112,216,0.4); }
+  30%       { transform: translateY(-10px) scale(1.12); box-shadow: 0 12px 24px rgba(154,112,216,0.6); }
+  60%       { transform: translateY(-5px) scale(1.06);  box-shadow: 0 8px 20px rgba(154,112,216,0.5); }
+}
+
+/* ── Tecla adaptiva que coincide con la pista ── */
+@keyframes key-ninja-pulse {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 0  rgba(154,112,216,0.5); background: #DDD4F5; }
+  50%      { transform: scale(1.18); box-shadow: 0 0 0 8px rgba(154,112,216,0);  background: #C0B0E8; }
+}
+
 /* ═══════════════════════════════════════════
    DESKTOP LAYOUT — ≥ 768px
    ═══════════════════════════════════════════ */

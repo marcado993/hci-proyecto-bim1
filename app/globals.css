@@ -45,8 +45,7 @@ body {
 }
 
 /* ═══════════════════════════════════════════
-   ANIMACIONES — Todas lentas y suaves (≥ 500ms)
-   Prohibidas: flash, bounce rápido, shake
+   ANIMACIONES GRAMMAR NINJA — dinámicas y calmadas
    ═══════════════════════════════════════════ */
 
 @keyframes slow-pulse {
@@ -56,45 +55,93 @@ body {
 
 @keyframes gentle-float {
   0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-5px); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* Letra cayendo al slot — spring physics */
+@keyframes slot-fill {
+  0%   { opacity: 0; transform: translateY(-20px) scale(1.25); }
+  55%  { transform: translateY(4px) scale(0.93); opacity: 1; }
+  75%  { transform: translateY(-2px) scale(1.04); }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
 @keyframes soft-appear {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slot-fill {
-  from { opacity: 0; transform: scale(0.82); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
+/* Celebración de acierto */
 @keyframes success-bloom {
-  0%   { box-shadow: 0 0 0 0   rgba(162, 216, 176, 0.6); }
-  60%  { box-shadow: 0 0 0 18px rgba(162, 216, 176, 0); }
-  100% { box-shadow: 0 0 0 0   rgba(162, 216, 176, 0); }
+  0%   { box-shadow: 0 0 0 0   rgba(162,216,176,0.7); }
+  50%  { box-shadow: 0 0 0 22px rgba(162,216,176,0); }
+  100% { box-shadow: 0 0 0 0   rgba(162,216,176,0); }
 }
 
+/* Imagen rebota al acertar */
+@keyframes ninja-celebrate {
+  0%   { transform: scale(1)    rotate(0deg); }
+  20%  { transform: scale(1.07) rotate(-2deg); }
+  45%  { transform: scale(1.1)  rotate(2deg); }
+  65%  { transform: scale(1.05) rotate(-1deg); }
+  100% { transform: scale(1)    rotate(0deg); }
+}
+
+/* Estrella pop */
 @keyframes star-pop {
-  0%   { transform: scale(0) rotate(-15deg); opacity: 0; }
-  70%  { transform: scale(1.15) rotate(5deg); opacity: 1; }
-  100% { transform: scale(1) rotate(0deg);  opacity: 1; }
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60%  { transform: scale(1.3) rotate(8deg);  opacity: 1; }
+  100% { transform: scale(1)   rotate(0deg);  opacity: 1; }
 }
 
+/* Respuesta incorrecta */
+@keyframes ninja-shake-no {
+  0%, 100% { transform: translateX(0); }
+  18%       { transform: translateX(-8px); }
+  36%       { transform: translateX(8px); }
+  54%       { transform: translateX(-5px); }
+  72%       { transform: translateX(5px); }
+}
+
+/* Glow pista */
 @keyframes hint-glow {
-  0%, 100% { box-shadow: 0 0 0 0   rgba(200, 193, 240, 0.4); opacity: 0.5; }
-  50%       { box-shadow: 0 0 0 12px rgba(200, 193, 240, 0); opacity: 1; }
+  0%, 100% { box-shadow: 0 0 0 0   rgba(154,112,216,0.4); }
+  50%       { box-shadow: 0 0 0 14px rgba(154,112,216,0); }
 }
 
 @keyframes neutral-fade {
   from { opacity: 1; }
-  50%  { opacity: 0.4; }
+  50%  { opacity: 0.45; }
   to   { opacity: 1; }
 }
 
-@keyframes progress-grow {
-  from { width: 0%; }
+@keyframes progress-grow { from { width: 0%; } }
+
+/* Panel entra deslizándose */
+@keyframes panel-slide-in {
+  from { opacity: 0; transform: translateX(18px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
+
+/* Teclas aparecen juntas */
+@keyframes keys-appear {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Slot ninja bounce (pista) */
+@keyframes ninja-bounce {
+  0%, 100% { transform: translateY(0) scale(1);     box-shadow: 0 0 16px rgba(154,112,216,0.35); }
+  30%       { transform: translateY(-10px) scale(1.12); box-shadow: 0 14px 28px rgba(154,112,216,0.55); }
+  65%       { transform: translateY(-5px) scale(1.06); }
+}
+
+/* Tecla hint pulsa */
+@keyframes key-ninja-pulse {
+  0%, 100% { transform: scale(1);    background: #DDD4F5; box-shadow: 0 0 0 0 rgba(154,112,216,0.4); }
+  50%       { transform: scale(1.16); background: #C0B0E8; box-shadow: 0 0 0 8px rgba(154,112,216,0); }
+}
+
 
 /* ═══════════════════════════════════════════
    CLASES DE UTILIDAD CUSTOM

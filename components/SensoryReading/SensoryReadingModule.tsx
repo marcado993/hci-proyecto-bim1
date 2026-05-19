@@ -214,8 +214,9 @@ export default function SensoryReadingModule() {
       </div>
 
       <button onClick={handleAudio} title="Escuchar la palabra" style={{
-        background: audioOn ? "#C8EDD4" : "#F0EEF8", border: `2px solid ${audioOn ? "#A2D8B0" : "#D9D4F0"}`,
+        background: "#F0EEF8", border: "2px solid #D9D4F0",
         borderRadius: "12px", padding: "8px 10px", fontSize: "1.1rem", cursor: "pointer", minHeight: "44px", flexShrink: 0,
+        transition: "all 0.2s ease",
       }}>🔊</button>
 
       <div style={{ background: "#FFF3C4", border: "2px solid #F0DC90", borderRadius: "12px", padding: "4px 10px", textAlign: "center", flexShrink: 0 }}>
@@ -316,13 +317,18 @@ export default function SensoryReadingModule() {
                       padding: "16px", gap: "12px", overflow: "hidden" }}>
           {/* Imagen llena el panel */}
           <div style={{ flex: 1, minHeight: 0, position: "relative", borderRadius: "24px", overflow: "hidden",
-                        background: bgImg, border: `3px solid ${bdImg}`, transition: "all 0.6s ease",
-                        animation: status === "correct" ? "success-bloom 0.9s ease-out" : "none" }}>
+                        background: bgImg, border: `3px solid ${bdImg}`, transition: "background 0.6s ease, border-color 0.6s ease",
+                        animation: status === "correct"
+                          ? "ninja-celebrate 0.8s ease-out, success-bloom 1s ease-out"
+                          : status === "neutral-reset" ? "ninja-shake-no 0.5s ease-out" : "none" }}>
             {pictogramSrc ? (
               <Image src={pictogramSrc} alt={word.word} fill
-                sizes="(min-width:768px) 520px, 100vw" style={{ objectFit: "contain", padding: "20px" }} priority />
+                sizes="(min-width:768px) 520px, 100vw"
+                style={{ objectFit: "cover" }} priority />
             ) : (
-              <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "clamp(6rem,12vw,10rem)" }}>
+              <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center",
+                            fontSize: "clamp(6rem,12vw,10rem)",
+                            animation: "gentle-float 3s ease-in-out infinite" }}>
                 {word.emoji}
               </div>
             )}
@@ -336,14 +342,18 @@ export default function SensoryReadingModule() {
               </p>
               <div style={{ display: "flex", gap: "8px", justifyContent: "center", marginTop: "8px" }}>
                 <span style={{ background: "rgba(221,212,245,0.6)", borderRadius: "20px", padding: "2px 12px", fontSize: "0.78rem", fontWeight: 700, color: "#7A7590" }}>{word.categoryLabel}</span>
-                <span style={{ fontSize: "0.78rem", fontWeight: 600, color: "#7A7590" }}>{difficulty === "Fácil" ? "🌱" : "🌟"} {difficulty}</span>
+              <span style={{ fontSize: "0.78rem", fontWeight: 600, color: "#7A7590" }}>
+                {difficulty === "Fácil" || difficulty === "easy" ? "🌱" : "🌟"}
+                {" "}{difficulty === "easy" ? "Fácil" : difficulty === "medium" ? "Media" : difficulty}
+              </span>
               </div>
             </div>
           </div>
         </div>
 
         {/* ── PANEL DERECHO: ejercicio ── */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", padding: "16px 24px", gap: "16px", overflow: "hidden" }}>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", padding: "16px 24px", gap: "16px", overflow: "hidden",
+                      animation: "panel-slide-in 0.5s ease-out forwards" }}>
 
           {/* Instrucción clara */}
           <div style={{ flexShrink: 0, textAlign: "center" }}>
@@ -385,7 +395,8 @@ export default function SensoryReadingModule() {
           </div>
 
           {/* Teclado adaptivo — llena el espacio restante */}
-          <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", justifyContent: "center", gap: "12px" }}>
+          <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", justifyContent: "center", gap: "12px",
+                        animation: "keys-appear 0.4s ease-out 0.15s both" }}>
             <AdaptiveKeys letters={adaptiveLetters} onPress={handlePress} disabled={isKeyDisabled} hintLetter={hintLetter} difficulty={difficulty} />
 
             <div style={{ textAlign: "center" }}>

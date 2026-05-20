@@ -57,21 +57,20 @@ function SVGComida({ size = 50 }: { size?: number }) {
     </svg>
   );
 }
-
-// ── Ilustración Vectorial: Categoría Juguetes (Oso) ──
-function SVGJuguetes({ size = 50 }: { size?: number }) {
+// ── Ilustración Vectorial: Categoría Colores (Paleta de pintor) ──
+function SVGColores({ size = 50 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="50" cy="50" r="40" fill="#F3E5F5" />
-      <circle cx="34" cy="36" r="10" fill="#A1887F" />
-      <circle cx="66" cy="36" r="10" fill="#A1887F" />
-      <circle cx="34" cy="36" r="6" fill="#FFCDD2" />
-      <circle cx="66" cy="36" r="6" fill="#FFCDD2" />
-      <circle cx="50" cy="54" r="22" fill="#BCAAA4" />
-      <ellipse cx="50" cy="60" rx="9" ry="7" fill="#FFF" />
-      <circle cx="43" cy="50" r="3" fill="#1A1530" />
-      <circle cx="57" cy="50" r="3" fill="#1A1530" />
-      <ellipse cx="50" cy="57" rx="3.5" ry="2" fill="#1A1530" />
+      {/* Palette Base */}
+      <path d="M 30 54 C 20 44, 25 24, 50 24 C 75 24, 80 50, 70 70 C 60 80, 42 80, 36 70 C 30 60, 40 64, 30 54 Z" fill="#E0D2C3" />
+      {/* Thumb Hole */}
+      <circle cx="62" cy="42" r="6" fill="#F3E5F5" />
+      {/* Colors paint drops */}
+      <circle cx="38" cy="38" r="6" fill="#EF5350" /> {/* Red */}
+      <circle cx="48" cy="64" r="6" fill="#C6F135" /> {/* Lime */}
+      <circle cx="62" cy="62" r="6" fill="#29B6F6" /> {/* Blue */}
+      <circle cx="48" cy="46" r="5" fill="#FFE34E" /> {/* Yellow */}
     </svg>
   );
 }
@@ -208,19 +207,19 @@ function Dashboard() {
   };
 
   const categoriesData = [
-    { id: "animales", label: "Animales", component: <SVGAnimales size={72} />, bg: "#C6F135", border: "#A8D420", text: "#2A4A00", count: 8 },
+    { id: "animales",  label: "Animales", component: <SVGAnimales size={72} />, bg: "#C6F135", border: "#A8D420", text: "#2A4A00", count: 8 },
     { id: "casa",      label: "En Casa",   component: <SVGCasa size={72} />,     bg: "#3DDAD4", border: "#28C0BA", text: "#003D3B", count: 6 },
-    { id: "comida",    label: "Comida",    component: <SVGComida size={72} />,   bg: "#FFE34E", border: "#F0CB20", text: "#4A3800", count: 7 },
-    { id: "juguetes",  label: "Juguetes",  component: <SVGJuguetes size={72} />, bg: "#FF90B3", border: "#F06090", text: "#5A0020", count: 6 },
+    { id: "alimentos", label: "Comida",    component: <SVGComida size={72} />,   bg: "#FFE34E", border: "#F0CB20", text: "#4A3800", count: 7 },
+    { id: "colores",   label: "Colores",   component: <SVGColores size={72} />,  bg: "#FF90B3", border: "#F06090", text: "#5A0020", count: 7 },
   ];
 
   // Reactividad en brazos según hover
   let leftArmRotate = "rotate(0deg) scale(1)";
   let rightArmRotate = "rotate(0deg) scale(1)";
 
-  if (hoveredCard === "animales" || hoveredCard === "comida") {
+  if (hoveredCard === "animales" || hoveredCard === "alimentos") {
     leftArmRotate = "rotate(-6deg) scale(1.06)";
-  } else if (hoveredCard === "casa" || hoveredCard === "juguetes") {
+  } else if (hoveredCard === "casa" || hoveredCard === "colores") {
     rightArmRotate = "rotate(6deg) scale(1.06)";
   } else if (hoveredCard === "ver_todos") {
     leftArmRotate = "rotate(-4deg) scale(1.03)";

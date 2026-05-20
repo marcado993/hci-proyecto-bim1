@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Nunito } from "next/font/google";
+import { Nunito, Fredoka } from "next/font/google";
 import "./globals.css";
 
 const nunito = Nunito({
@@ -9,10 +9,17 @@ const nunito = Nunito({
   variable: "--font-nunito",
 });
 
+const fredoka = Fredoka({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  variable: "--font-fredoka",
+});
+
 export const metadata: Metadata = {
-  title: "Mundo Lector — Aprendo con Alegría",
+  title: "Mundo Lector — ¡Aprendo con Alegría!",
   description:
-    "Ecosistema interactivo de lectoescritura para niños con autismo de 3 a 7 años. Aprendizaje sensorial con pictogramas, palabras y bloques físicos.",
+    "Plataforma interactiva de lectoescritura para niños con autismo de 3 a 7 años. Aprende palabras con pictogramas, juegos y tu mascota.",
   keywords: ["autismo", "lectoescritura", "niños", "TEACCH", "ARASAAC", "aprendizaje"],
   authors: [{ name: "Mundo Lector" }],
 };
@@ -21,7 +28,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  themeColor: "#FFF8EE",
+  themeColor: "#7B5CF6",
 };
 
 export default function RootLayout({
@@ -30,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={nunito.variable}>
+    <html lang="es" className={`${nunito.variable} ${fredoka.variable}`}>
       <body style={{ fontFamily: "'Nunito', system-ui, sans-serif" }}>
         {children}
       </body>
